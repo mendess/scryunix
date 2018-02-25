@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import sys
 import scrython
 import textwrap
@@ -208,20 +206,18 @@ def sideBySide(str1, str2, width=50):
 
 def printCard(card):
     if card.layout() == 'normal':
-        print(makeCardString(card))
+        return makeCardString(card)
     elif card.layout() == 'split':
-        print(makeSplitCardString(card))
+        return makeSplitCardString(card)
     elif card.layout() == 'transform' or card.layout() == 'flip':
-        print(makeTransformCardLayout(card))
-    else:
-        print("Fuck")
+        return makeTransformCardLayout(card)
 
 card = None
 
 if len(sys.argv) is 1:
-    card = scrython.cards.Named(fuzzy="Akki Lavarunner")
+    card = scrython.cards.Random()
 else:
-    args = sys.argv.pop(0)
+    sys.argv.pop(0)
     cardName = ""
     for a in sys.argv:
         cardName += a
@@ -233,4 +229,4 @@ else:
         card = None
 
 if card is not None:
-    printCard(card)
+    print(printCard(card))
