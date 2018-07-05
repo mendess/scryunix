@@ -1,7 +1,7 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
-    name='scry',
-    packages=['scry'],
+    name='scryunix',
+    packages=['scryunix'],
     version='1.0',
     description='A simple terminal tool to fetch MTG card info',
     author='Mendess2526',
